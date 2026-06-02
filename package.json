@@ -1,0 +1,25 @@
+{
+  "name": "agenticros-skill-find",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Find Object skill for AgenticROS — robot rotates in place until it sees a target object (YOLOv8n on the camera feed), then stops",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "agenticrosSkill": true,
+  "dependencies": {
+    "@agenticros/core": "file:../agenticros/packages/core",
+    "@sinclair/typebox": "^0.34.0",
+    "onnxruntime-node": "^1.20.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^5.7.0"
+  },
+  "author": "PlaiPin",
+  "license": "Apache-2.0"
+}
