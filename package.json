@@ -1,17 +1,68 @@
 {
   "name": "agenticros-skill-find",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Find Object skill for AgenticROS — robot rotates in place until it sees a target object (YOLOv8n on the camera feed), then stops",
+  "description": "Find Object skill for AgenticROS — the robot rotates in place until YOLOv8 sees a target object in the camera, then stops and returns the bounding box.",
+  "keywords": [
+    "agenticros",
+    "ros2",
+    "robotics",
+    "vision",
+    "yolo",
+    "object-detection",
+    "search"
+  ],
+  "homepage": "https://github.com/agenticros/agenticros-skill-find#readme",
+  "bugs": {
+    "url": "https://github.com/agenticros/agenticros-skill-find/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agenticros/agenticros-skill-find.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
-  "agenticrosSkill": true,
+  "agenticros": {
+    "id": "find",
+    "displayName": "Find Object",
+    "description": "Rotate the robot in place and stop the moment YOLOv8 sees the target — any of 80 COCO classes plus a small alias table (phone, tv, sofa just work). Returns the bounding box, confidence, and horizontal offset from image center.",
+    "categories": [
+      "vision",
+      "search",
+      "navigation"
+    ],
+    "screenshots": [
+      "docs/find-object.png"
+    ],
+    "capabilities": [
+      {
+        "id": "find_object",
+        "verb": "find",
+        "description": "Rotate the robot in place until YOLOv8 sees the target object in the camera, then stop and return the bounding box.",
+        "inputs": {
+          "target": "string"
+        },
+        "outputs": {
+          "found": "boolean",
+          "bbox": "object",
+          "confidence": "number"
+        },
+        "interruptible": true,
+        "blocks_base": true
+      }
+    ]
+  },
   "dependencies": {
-    "@agenticros/core": "file:../agenticros/packages/core",
+    "@agenticros/core": "^0.5.0",
     "@sinclair/typebox": "^0.34.0",
     "onnxruntime-node": "^1.20.0",
     "sharp": "^0.33.0"
