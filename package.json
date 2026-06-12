@@ -40,9 +40,6 @@
       "search",
       "navigation"
     ],
-    "screenshots": [
-      "docs/find-object.png"
-    ],
     "capabilities": [
       {
         "id": "find_object",
