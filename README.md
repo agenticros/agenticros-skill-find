@@ -1,4 +1,8 @@
-# agenticros-skill-find
+# /find
+
+```bash
+npx agenticros skills install @agenticros/find
+```
 
 Find Object skill for [AgenticROS](https://github.com/agenticros/agenticros): the robot rotates in place until it sees a target object in the camera feed, then stops.
 
@@ -17,10 +21,10 @@ Find Object skill for [AgenticROS](https://github.com/agenticros/agenticros): th
 1. **Install the skill** where the OpenClaw gateway can load it:
    - **Option A (recommended)**: Add to AgenticROS config as a package name:
      - In OpenClaw config, under `plugins.entries.agenticros.config`, set:
-       - `skillPackages`: `["agenticros-skill-find"]`
-     - Install the package in the same environment as the gateway (e.g. `pnpm add agenticros-skill-find` in the gateway app).
+       - `skillPackages`: `["/find"]`
+     - Install the package in the same environment as the gateway (e.g. `pnpm add /find` in the gateway app).
    - **Option B**: Clone this repo into a directory and add that directory to `skillPaths`:
-     - `skillPaths`: `["/path/to/agenticros-skill-find"]`
+     - `skillPaths`: `["/path/to//find"]`
      - Run `pnpm install` and `pnpm build` in this repo.
 2. **Configure** the skill in the same config under `skills.find` (see [Config options](#config-options-configskillsfind)).
 3. **Restart the OpenClaw gateway** so the plugin loads the skill.
@@ -85,7 +89,7 @@ Config is the full AgenticROS config; the skill only uses `config.skills.find`, 
 - **Context**: Use **`context.getTransport()`** for ROS2 and **`context.logger`** for logging.
 - **Registration**: Call **`api.registerTool(...)`** inside `registerSkill`. Depend only on the public skill API and types exported by `@agenticros/core`.
 
-For the full contract and how to create a third-party skill, see [docs/skills.md](https://github.com/agenticros/agenticros/blob/main/docs/skills.md) in the AgenticROS repo, and use [agenticros-skill-followme](https://github.com/agenticros/agenticros-skill-followme) as the reference template.
+For the full contract and how to create a third-party skill, see [docs/skills.md](https://github.com/agenticros/agenticros/blob/main/docs/skills.md) in the AgenticROS repo, and use [/followme](https://github.com/agenticros//followme) as the reference template.
 
 ## Acknowledgements
 
