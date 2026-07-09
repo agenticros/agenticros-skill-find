@@ -1,5 +1,5 @@
 {
-  "name": "agenticros-skill-find",
+  "name": "@agenticros-skills/find",
   "version": "0.2.0",
   "type": "module",
   "description": "Find Object skill for AgenticROS — the robot rotates in place until YOLOv8 sees a target object in the camera, then stops and returns the bounding box.",
@@ -59,7 +59,7 @@
     ]
   },
   "dependencies": {
-    "@agenticros/core": "^0.5.0",
+    "@agenticros/core": "^0.8.0",
     "@sinclair/typebox": "^0.34.0",
     "onnxruntime-node": "^1.20.0",
     "sharp": "^0.33.0"
@@ -69,5 +69,8 @@
     "typescript": "^5.7.0"
   },
   "author": "PlaiPin",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
